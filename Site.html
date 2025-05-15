@@ -1,0 +1,162 @@
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contents {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .titles {
+        color: white;
+        background-color: rgb(0, 10, 255);
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        background-color: rgb(0, 10, 255);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .showimage {
+        display: flex;
+        width: 100%;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .overlay iframe {
+        width: 80%;
+        height: 80%;
+        border: none;
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script> -->
+<div class="container">
+    <div class="contents">
+        <p class="titles">Projets Scolaire</p>
+        <p>Au cours des années à l'IUT de Brest, j'ai pu concevoir plusieurs projets qui m'interesse.</p>
+        <p  >Robot Suiveur de ligne</p>
+        <span>Nous avions pour objectif de créer un robot qui suive une ligne, nous avions plusieurs étapes à franchir,
+            la
+            création des circuits imprimés pour les capteurs et la partie commande, la construction du robot et la
+            réalisation du programme.</span>
+        <img src="https://i.imgur.com/whKo5Na.png" alt="Carte capteurs" style="width: 550px;height: 450px;"
+            onclick="openPopup('https://drive.google.com/file/d/1BYxfv5FotmIkYUfRAresu3vgOdpkHhTW/preview', 'pdf')">
+        <!-- <embed src="https://drive.google.com/file/d/1BYxfv5FotmIkYUfRAresu3vgOdpkHhTW/preview" width="500px" height="375px" 
+ type="application/pdf"> -->
+        <canvas id="pdfViewer"></canvas>
+        <span>Durant ce projet, j'ai été chargé de la partie programmation d'une arduino nano, en utilisant arduino IDE
+            et
+            VScode et ensuite j'ai developé une PCB pour les capteurs, et ensuite verifier le fonctionnement du
+            système.</span>
+        <div><span>Compétence développer : Verifier et Concevoir</span></div>
+        <img src="https://i.imgur.com/E0i8lTB.png"> 
+        <p class="projetTitles">Système de surveillance</p>
+        <span>Durant la 3ème année, je suis entrain de concevoir un système de surveillance avec des collegues. Ce
+            système
+            permettre de
+            collecter et d'analyser des données pour améliorer la gestion et la culture des algues dans
+            des bassins de culture.
+            Et pour qu'il soit facil a acceder les informations, j'ai développé l'ensemble de la chaîne de transmission
+            de
+            données du projet avec une base de données (InfluxDB) et une interface Web (Grafana). Celle-ci a été réalisé
+            sur
+            une base Docker pour faciliter l'implantation du système chez le client. Et pour envoyer des alertes
+            au client, j'ai utlisé Rocket-chat comme application de communication entre le server et le client.
+        </span>
+        <span>J'ai été chargé de la partie informatique et aussi j'ai pu concevoir un antenne PIFA pour communiquer
+            entre la
+            carte et le cloud. </span>
+        <div><span>Compétence développer : Concevoir, Implanter, Vérifier et Maintenir</span></div>
+        <p class="titles">Projets Personnel</p>
+        Sur le plan personnel, j'ai réalisé plusieurs projets, tels qu'un programme de
+        domotique, en utilisant C# comme langage principal, et j'ai conçu plusieurs PCB pour une imprimante 3D, une
+        machine laser. Ensuite, j'ai pu les tester sur des machines artisanales.
+        <div><span>Compétence développer : Implanter, Vérifier et Maintenir</span></div>
+    </div>
+</div>
+<!-- <div class="overlay" id="overlay" onclick="closeImage(event)">
+    <span class="close" onclick="closeImage(event)">&times;</span>
+    <img id="popupImg" src="" alt="Popup Image">
+</div> -->
+<div class="overlay" id="overlay" onclick="closePopup(event)">
+    <span class="close" onclick="closePopup(event)">&times;</span>
+    <iframe id="popupPdf" src="" style="display:none;"></iframe>
+</div>
+
+
+<script>
+    // function openImage(src) {
+    //     document.getElementById('popupImg').src = src;
+    //     document.getElementById('overlay').style.display = 'flex';
+    // }
+
+    // function closeImage(event) {
+    //     if (event.target === document.getElementById('overlay') || event.target.classList.contains('close')) {
+    //         document.getElementById('overlay').style.display = 'none';
+    //     }
+    // }
+    function openPopup(src, type) {
+        const pdf = document.getElementById('popupPdf');
+
+        if (type === 'pdf') {
+            pdf.src = src;
+            pdf.style.display = 'block';
+        }
+
+        document.getElementById('overlay').style.display = 'flex';
+    }
+
+    function closePopup(event) {
+        if (event.target === document.getElementById('overlay') || event.target.classList.contains('close')) {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popupPdf').src = "";
+        }
+    }
+
+    // const url = 'https://drive.google.com/file/d/1BYxfv5FotmIkYUfRAresu3vgOdpkHhTW/preview';
+    // pdfjsLib.getDocument(url).promise.then(pdf => {
+    //     pdf.getPage(1).then(page => {
+    //         const canvas = document.getElementById('pdfViewer');
+    //         const context = canvas.getContext('2d');
+    //         const viewport = page.getViewport({ scale: 1.5 });
+    //         canvas.width = viewport.width;
+    //         canvas.height = viewport.height;
+    //         page.render({ canvasContext: context, viewport: viewport });
+    //     });
+    // });
+</script>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jad Sfeir - Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-buttons a {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-buttons a:hover {
+            background-color: #2980b9;
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin: 40px 0 20px;
+            border-top: 2px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .timeline-item img {
+            width: 120px;
+            height: auto;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-content h3 {
+            color: #0e7aff;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .timeline-content small {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timeline-item img {
+                margin-bottom: 15px;
+            }
+
+            nav {
+                position: static;
+                text-align: center;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Jad SFEIR</h1>
+        <p>Bienvenue sur mon site ! Retrouvez-y mon portfolio et mes projets !</p>
+        <div class="social-buttons">
+            <a href="https://github.com/Remiker/lemarConnect.git">Github</a>
+            <a href="https://www.linkedin.com/in/jad-sfeir-506ba4252/">LinkedIn</a>
+        </div>
+        <nav>
+            <a href="#" style=" border-bottom: 3px solid #ff9900;  
+            padding-bottom: 5px;  
+            font-weight: bold;  ">Home</a>
+            <a href="Sitev2.html">Projets</a>
+        </nav>
+    </header>
+    <section>
+        <h2 class="section-title">Mon Parcours</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <img src="logo-lab-sticc.png" alt="Lab-STICC logo">
+                <div class="timeline-content">
+                    <h3>Stage chez Lab-STICC UBO</h3>
+                    <small>Octobre 2024 - Juillet 2025</small>
+                    <p>Pour ma 3ème année de BUT GEII, j'effectue mon stage/alternance chez Lab-Sticc. Le Labo est une
+                        unité de recherche qui couvre un large spectre scientifique autour des sciences du numérique. Je
+                        suis dans l’équipe hardware pour radio-fréquence.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <img src="multilaneimg.png" alt="MultiLane logo">
+                <div class="timeline-content">
+                    <h3>Stage chez MultiLane</h3>
+                    <small>Avril 2024 - Juin 2024</small>
+                    <p>Pour ma 2ème année de BUT GEII, j'ai effectué mon stage chez MultiLane. L'entreprise développe
+                        des solutions de test pour des produits hyper-fréquence. J'étais dans l'équipe firmware.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <img src="iutbrest.png" alt="IUT logo">
+                <div class="timeline-content">
+                    <h3>Formation BUT Génie Electrique et Informatique Industrielle</h3>
+                    <small>IUT Brest-Morlaix | 2022 - 2025</small>
+                    <p>Parcours Electronique et Systèmes Embarqués (3 ans).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
